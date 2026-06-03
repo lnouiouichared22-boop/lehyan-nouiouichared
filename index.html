@@ -225,3 +225,791 @@ nav {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  font-weight: 600;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Marquee */
+.marquee {
+  border-top: 1px solid var(--bg-dark);
+  border-bottom: 1px solid var(--bg-dark);
+  padding: 1.5rem 0;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--ink-light);
+}
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: scroll 30s linear infinite;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.marquee-track span { display: inline-flex; align-items: center; gap: 3rem; }
+.marquee-track .dot { color: var(--accent); font-style: normal; }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* =============== SECTIONS =============== */
+section { padding: 8rem 2.5rem; position: relative; }
+
+/* Section sombre — rupture rythmique */
+.section-dark {
+  background: var(--bg-dark);
+  color: var(--ink-light);
+}
+.section-dark .section-intro { color: var(--ink-dim-light); }
+.section-dark .timeline-desc,
+.section-dark .skill-desc,
+.section-dark .exp-desc { color: var(--ink-dim-light); }
+.section-dark .skill-tag { color: var(--ink-dim-light); border-color: var(--line-light); }
+.section-dark .skill-card { background: #141a2b; border-color: var(--line-light); }
+.section-dark .skill-card .skill-title { color: var(--ink-light); }
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 4rem;
+  gap: 2rem; flex-wrap: wrap;
+}
+.section-number {
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-intro {
+  font-size: 1.05rem;
+  color: var(--ink-dim);
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+/* =============== À PROPOS =============== */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-image {
+  aspect-ratio: 4/5;
+  background: var(--bg-dark);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.8rem; color: var(--ink-dim-light);
+  padding: 0; text-align: center;
+  position: sticky; top: 100px;
+  overflow: hidden;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+.cv-preview-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+.cv-preview-link:hover img { transform: scale(1.03); }
+.cv-preview-hint {
+  position: absolute;
+  bottom: 1.5rem; left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+.cv-preview-link:hover .cv-preview-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+.about-content p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--ink-dim);
+}
+.about-content p:first-child {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--ink);
+  line-height: 1.4;
+  font-weight: 400;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+.stat-num {
+  font-family: var(--display);
+  font-size: 3rem;
+  color: var(--accent);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+}
+
+/* =============== FORMATIONS / PARCOURS =============== */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+.timeline-item {
+  position: relative;
+  padding: 2rem 0 2rem 3rem;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  transition: all 0.4s ease;
+}
+.timeline-item:hover { background: rgba(0,102,255,0.02); padding-left: 3.5rem; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem; top: 2.5rem;
+  width: 12px; height: 12px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+.timeline-item:hover::before { background: var(--accent); transform: scale(1.3); }
+.timeline-date {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+.timeline-title {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.timeline-place {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+/* =============== COMPÉTENCES =============== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.skill-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.skill-card:hover::before { transform: scaleX(1); }
+.skill-card:hover { transform: translateY(-4px); border-color: rgba(0,102,255,0.3); }
+.skill-icon {
+  font-family: var(--display);
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  line-height: 1;
+}
+.skill-title {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.skill-desc {
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.skill-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.skill-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+}
+
+/* =============== PROJETS =============== */
+.projects {
+  display: grid;
+  gap: 0;
+}
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+  align-items: center;
+  transition: all 0.4s ease;
+}
+.project:last-child { border-bottom: 1px solid var(--line); }
+.project:hover .project-image { transform: scale(0.98); }
+.project:nth-child(even) { direction: rtl; }
+.project:nth-child(even) > * { direction: ltr; }
+.project-image {
+  aspect-ratio: 16/10;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.8rem; color: var(--ink-dim);
+  padding: 0; text-align: center;
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-image::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0,102,255,0.08), transparent 70%);
+}
+.project-num {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+.project-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  line-height: 1.05;
+}
+.project-desc {
+  font-size: 1rem;
+  color: var(--ink-dim);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.project-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+}
+.project-meta strong { color: var(--ink); display: block; margin-bottom: 0.25rem; }
+.project-link {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-family: var(--mono); font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.15em;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--accent);
+  color: var(--accent);
+  transition: gap 0.3s;
+}
+.project-link:hover { gap: 1.25rem; }
+
+/* =============== EXPÉRIENCE =============== */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.exp-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.exp-card:hover { border-color: rgba(0,102,255,0.3); transform: translateY(-4px); }
+.exp-date {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+.exp-role {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.exp-company {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+.exp-desc {
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+  line-height: 1.7;
+}
+
+/* =============== CENTRES D'INTÉRÊT =============== */
+.interests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.interest {
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.interest::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--accent);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+.interest:hover::before { transform: translateY(0); }
+.interest:hover { color: var(--bg); border-color: var(--accent); }
+.interest > * { position: relative; z-index: 1; }
+.interest-icon {
+  font-family: var(--display);
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-style: italic;
+  transition: color 0.4s;
+}
+.interest:hover .interest-icon { color: var(--bg); }
+.interest-name {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* =============== CONTACT =============== */
+.contact {
+  text-align: center;
+  padding: 10rem 2.5rem;
+  background: var(--bg-dark);
+  color: var(--ink-light);
+  border-top: 1px solid var(--line);
+}
+.contact-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+.contact-title {
+  font-family: var(--display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+.contact-title em { font-style: italic; color: var(--accent); }
+.contact-email {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--ink-dim);
+  margin-bottom: 3rem;
+  display: inline-block;
+  border-bottom: 1px solid var(--ink-dim);
+  padding-bottom: 0.5rem;
+  transition: all 0.3s;
+}
+.contact-email:hover { color: var(--accent); border-color: var(--accent); }
+.contact-info {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+}
+.contact-info a { transition: color 0.3s; }
+.contact-info a:hover { color: var(--accent); }
+
+/* =============== FOOTER =============== */
+footer {
+  padding: 2rem 2.5rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+  flex-wrap: wrap; gap: 1rem;
+}
+
+/* =============== SCROLL REVEAL =============== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* =============== RESPONSIVE =============== */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); flex-direction: column; padding: 2rem; border-bottom: 1px solid var(--line); }
+  .nav-links.open { display: flex; }
+  .menu-toggle { display: block; font-family: var(--mono); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; }
+  .hero { grid-template-columns: 1fr; padding: 7rem 1.25rem 3rem; gap: 3rem; }
+  .hero-visual { justify-self: start; max-width: 100%; }
+  section { padding: 5rem 1.25rem; }
+  .about { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image { position: relative; top: 0; max-width: 300px; }
+  .about-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+  .timeline-item { grid-template-columns: 1fr; gap: 1rem; }
+  .project { grid-template-columns: 1fr; gap: 2rem; }
+  .project:nth-child(even) { direction: ltr; }
+  .contact { padding: 5rem 1.25rem; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">L<span>.</span>N<span>--</span>C</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#competences">Compétences</a>
+    <a href="#projets">Projets</a>
+    <a href="#experience">Expérience</a>
+    <a href="#interets">Intérêts</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
+</nav>
+
+<section class="hero" id="accueil">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Portfolio · BUT GEII · Promotion 2023-2026</div>
+    <h1 class="hero-title">
+      Lehyan<br />
+      <em>Nouioui--Chared</em>
+    </h1>
+    <p class="hero-subtitle">
+      Étudiant en 3<sup>e</sup> année de BUT GEII, parcours Automatismes
+      et Informatique Industrielle. Je conçois, programme et fiabilise
+      les systèmes qui pilotent l'industrie — du capteur à la mise en service.
+    </p>
+    <div class="hero-cta">
+      <a href="#projets" class="btn btn-primary">Voir mes projets <span class="arrow">→</span></a>
+      <a href="#contact" class="btn">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-photo">
+      <img src="photo-profil.jpg" alt="Lehyan Nouioui-Chared" />
+    </div>
+    <div class="hero-badge">En alternance<br />Sagemcom · 2025-2026</div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Automatisme <em class="dot">●</em> Schneider <em class="dot">●</em> Siemens TIA Portal <em class="dot">●</em> FANUC <em class="dot">●</em> ABB RAPID <em class="dot">●</em> Vision Keyence <em class="dot">●</em> ISO 13849-1 <em class="dot">●</em> C/C++ <em class="dot">●</em> Python <em class="dot">●</em></span>
+    <span>Automatisme <em class="dot">●</em> Schneider <em class="dot">●</em> Siemens TIA Portal <em class="dot">●</em> FANUC <em class="dot">●</em> ABB RAPID <em class="dot">●</em> Vision Keyence <em class="dot">●</em> ISO 13849-1 <em class="dot">●</em> C/C++ <em class="dot">●</em> Python <em class="dot">●</em></span>
+  </div>
+</div>
+
+<section id="apropos">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-number">01 — À propos</div>
+      <h2 class="section-title">Qui suis-<em>je</em>.</h2>
+    </div>
+    <p class="section-intro">Rigoureux, curieux, autonome — j'aime comprendre les systèmes en profondeur avant de les améliorer.</p>
+  </div>
+
+  <div class="about reveal">
+    <div class="about-image">
+      <a href="cv-lehyan.pdf" target="_blank" rel="noopener" class="cv-preview-link" title="Ouvrir mon CV en grand">
+        <img src="cv-preview.jpg" alt="Aperçu du CV de Lehyan Nouioui-Chared" />
+        <span class="cv-preview-hint">Voir le CV ↗</span>
+      </a>
+    </div>
+    <div class="about-content">
+      <p>Étudiant en 3<sup>e</sup> année de BUT GEII à l'IUT de Brest-Morlaix, je me spécialise en Automatismes et Informatique Industrielle.</p>
+      <p>Mon parcours, à la croisée de l'électronique, de la programmation et de la mécanique industrielle, m'a appris à intervenir sur toute la chaîne : du choix des composants à la mise en service, en passant par la programmation d'automates, la robotique, la sécurité machine et la maintenance.</p>
+      <p>Je suis actuellement en alternance chez <strong>Sagemcom MEI</strong>, où je participe à la fabrication et l'optimisation de prototypes de compteurs d'eau intelligents — un terrain idéal pour confronter la théorie à la réalité industrielle.</p>
+      <p>Ce que je cherche : continuer à monter en compétence sur des projets concrets, en équipe, avec l'envie d'apporter des solutions qui tiennent la route — du schéma au câblage, du code au produit fini.</p>
+
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Années de BUT</div>
+        </div>
+        <div>
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Projets techniques</div>
+        </div>
+        <div>
+          <div class="stat-num">1</div>
+          <div class="stat-label">Alternance en cours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-number">02 — Parcours</div>
+      <h2 class="section-title">Mon <em>itinéraire</em>.</h2>
+    </div>
+    <p class="section-intro">De la classe de Terminale à l'automatisme industriel — un parcours pensé pour mettre les mains dans le concret.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2025 — 2026</div>
+      <div>
+        <h3 class="timeline-title">BUT GEII — 3<sup>e</sup> année</h3>
+        <p class="timeline-place">IUT Brest-Morlaix · Parcours AII</p>
+      </div>
+      <p class="timeline-desc">Spécialisation Automatismes et Informatique Industrielle. Approfondissement de la programmation d'automates (Schneider, Siemens), de la robotique industrielle (FANUC, ABB) et de la sécurité machine.</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2023 — 2025</div>
+      <div>
+        <h3 class="timeline-title">BUT GEII — 1<sup>re</sup> et 2<sup>e</sup> années</h3>
+        <p class="timeline-place">IUT Brest-Morlaix</p>
+      </div>
+      <p class="timeline-desc">Acquisition des fondamentaux du génie électrique : électronique analogique et numérique, automatique, capteurs, informatique industrielle, électrotechnique et conception de systèmes.</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2022</div>
+      <div>
+        <h3 class="timeline-title">Baccalauréat</h3>
+        <p class="timeline-place">[Lycée — Ville · à compléter]</p>
+      </div>
+      <p class="timeline-desc">Obtention du baccalauréat — première étape vers une orientation choisie en génie électrique et informatique industrielle.</p>
+    </div>
+  </div>
+</section>
+
+<section id="competences" class="section-dark">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-number">03 — Compétences</div>
+      <h2 class="section-title">Ce que je <em>sais faire</em>.</h2>
+    </div>
+    <p class="section-intro">Les 4 axes du référentiel BUT GEII — Concevoir, Vérifier, Maintenir, Implanter — déclinés avec les outils que j'utilise au quotidien.</p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">01</div>
+      <h3 class="skill-title">Concevoir</h3>
+      <p class="skill-desc">Spécification fonctionnelle, choix des composants (capteurs, contacteurs, protections), conception d'architectures matérielles et logicielles, rédaction et révision de schémas électriques.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Schémas élec.</span>
+        <span class="skill-tag">Architecture HW/SW</span>
+        <span class="skill-tag">Sélection composants</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">02</div>
+      <h3 class="skill-title">Vérifier</h3>
+      <p class="skill-desc">Mesures électriques, contrôles de validation à l'aide des instruments adaptés, lecture et vérification de schémas et plans de câblage avant mise sous tension.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Multimètre</span>
+        <span class="skill-tag">Validation</span>
+        <span class="skill-tag">Sécurité élec.</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">03</div>
+      <h3 class="skill-title">Maintenir</h3>
+      <p class="skill-desc">Maintenance préventive et corrective sur lignes de production, diagnostic de pannes, optimisations matérielles et logicielles pour améliorer la performance des systèmes en service.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Diagnostic</span>
+        <span class="skill-tag">Maint. préventive</span>
+        <span class="skill-tag">Optimisation</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">04</div>
+      <h3 class="skill-title">Implanter</h3>
+      <p class="skill-desc">Câblage et assemblage d'armoires électriques, programmation d'automates (Schneider, Siemens), programmation de robots industriels (ABB, FANUC), mise en service et sécurisation machine selon ISO 13849-1.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">TIA Portal</span>
+        <span class="skill-tag">Machine Expert</span>
+        <span class="skill-tag">ABB RAPID</span>
+        <span class="skill-tag">FANUC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-number">04 — Projets</div>
+      <h2 class="section-title">Sélection de <em>réalisations</em>.</h2>
+    </div>
+    <p class="section-intro">Projets académiques et industriels où j'ai pu mettre en pratique l'ensemble de la chaîne — de la conception à la mise en service.</p>
+  </div>
+
+  <div class="projects">
+
+    <div class="project reveal">
+      <div class="project-image">
+        <img src="robotabb.png" alt="Cellule robotique de tri ABB et système Keyence" />
+      </div>
+      <div>
+        <div class="project-num">/ Projet 01</div>
+        <h3 class="project-title">Cellule robotique de tri sécurisée</h3>
+        <p class="project-desc">Refonte et sécurisation d'une cellule robotique de tri équipée d'un robot ABB SCARA et d'un système de vision Keyence. Programmation des trajectoires pick-and-place, calibration du système de vision XG-035C pour la reconnaissance et le tri par catégorie, conception et mise en place du dispositif de sécurité (barrières immatérielles, relais de sécurité) dans le respect de la norme ISO 13849-1.</p>
+        <div class="project-meta">
+          <div><strong>Année</strong>2024-2025</div>
+          <div><strong>Contexte</strong>Projet IUT</div>
+          <div><strong>Stack</strong>ABB RAPID · Keyence</div>
+        </div>
+        <a href="#" class="project-link">En savoir plus →</a>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-image">
+        <video
+          src="Fonctionnement_robot.mp4"
+          autoplay
+          loop
+          muted
+          playsinline
+          style="width:100%;height:100%;object-fit:cover;display:block;"
+        ></video>
+      </div>
+      <div>
+        <div class="project-num">/ Projet 02</div>
+        <h3 class="project-title">Programmation d'un robot palettiseur FANUC</h3>
+        <p class="project-desc">Simulation complète d'un îlot automatisé de palettisation sur cellule éducative FANUC LR Mate 200iD. Programmation des séquences pick-and-place via ROBOGUIDE : prise de boîtes sur convoyeur (gestion des E/S DI/DO, ventouse préhenseuse), présentation face...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
