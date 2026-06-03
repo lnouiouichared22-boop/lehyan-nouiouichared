@@ -780,7 +780,6 @@ footer {
 </head>
 <body>
 
-<!-- =============== NAVIGATION =============== -->
 <nav>
   <div class="logo">L<span>.</span>N<span>--</span>C</div>
   <div class="nav-links" id="navLinks">
@@ -796,7 +795,6 @@ footer {
   <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
 </nav>
 
-<!-- =============== HERO =============== -->
 <section class="hero" id="accueil">
   <div class="hero-text">
     <div class="hero-eyebrow">Portfolio · BUT GEII · Promotion 2023-2026</div>
@@ -822,7 +820,6 @@ footer {
   </div>
 </section>
 
-<!-- =============== MARQUEE =============== -->
 <div class="marquee">
   <div class="marquee-track">
     <span>Automatisme <em class="dot">●</em> Schneider <em class="dot">●</em> Siemens TIA Portal <em class="dot">●</em> FANUC <em class="dot">●</em> ABB RAPID <em class="dot">●</em> Vision Keyence <em class="dot">●</em> ISO 13849-1 <em class="dot">●</em> C/C++ <em class="dot">●</em> Python <em class="dot">●</em></span>
@@ -830,7 +827,6 @@ footer {
   </div>
 </div>
 
-<!-- =============== À PROPOS =============== -->
 <section id="apropos">
   <div class="section-header reveal">
     <div>
@@ -850,7 +846,7 @@ footer {
     <div class="about-content">
       <p>Étudiant en 3<sup>e</sup> année de BUT GEII à l'IUT de Brest-Morlaix, je me spécialise en Automatismes et Informatique Industrielle.</p>
       <p>Mon parcours, à la croisée de l'électronique, de la programmation et de la mécanique industrielle, m'a appris à intervenir sur toute la chaîne : du choix des composants à la mise en service, en passant par la programmation d'automates, la robotique, la sécurité machine et la maintenance.</p>
-      <p>Je suis actuellement en alternance chez <strong>Sagemcom MEI</strong>, où je participe à la fabrication et l'optimisation de prototypes de compteurs d'eau intelligents — un terrain idéal pour confronter la théorie à la réalité industrielle.</p>
+      <p>Je suis actuellement en alternance chez <strong>Sagemcom MEI</strong>, où je participe à la fabrication et l'optimisation de prototypes de compteurs d'eau intelligents — un terrain idéal pour confronter la theory à la réalité industrielle.</p>
       <p>Ce que je cherche : continuer à monter en compétence sur des projets concrets, en équipe, avec l'envie d'apporter des solutions qui tiennent la route — du schéma au câblage, du code au produit fini.</p>
 
       <div class="about-stats">
@@ -871,7 +867,6 @@ footer {
   </div>
 </section>
 
-<!-- =============== PARCOURS / FORMATIONS =============== -->
 <section id="parcours">
   <div class="section-header reveal">
     <div>
@@ -911,7 +906,6 @@ footer {
   </div>
 </section>
 
-<!-- =============== COMPÉTENCES =============== -->
 <section id="competences" class="section-dark">
   <div class="section-header reveal">
     <div>
@@ -969,7 +963,6 @@ footer {
   </div>
 </section>
 
-<!-- =============== PROJETS =============== -->
 <section id="projets">
   <div class="section-header reveal">
     <div>
@@ -982,7 +975,9 @@ footer {
   <div class="projects">
 
     <div class="project reveal">
-      <div class="project-image">[VISUEL PROJET 01<br />à insérer]</div>
+      <div class="project-image">
+        <img src="robotabb.jpg" alt="Cellule robotique de tri ABB et système Keyence" />
+      </div>
       <div>
         <div class="project-num">/ Projet 01</div>
         <h3 class="project-title">Cellule robotique de tri sécurisée</h3>
@@ -1010,147 +1005,11 @@ footer {
       <div>
         <div class="project-num">/ Projet 02</div>
         <h3 class="project-title">Programmation d'un robot palettiseur FANUC</h3>
-        <p class="project-desc">Simulation complète d'un îlot automatisé de palettisation sur cellule éducative FANUC LR Mate 200iD. Programmation des séquences pick-and-place via ROBOGUIDE : prise de boîtes sur convoyeur (gestion des E/S DI/DO, ventouse préhenseuse), présentation face au portique d'impression de date (changement d'UFrame), puis palettisation en couches croisées dans la caisse. Calcul des paramètres payload (inerties, centres de gravité), définition des UTool et UFrame, conception de la logique de boucle avec registres pour la gestion automatique des couches paires/impaires.</p>
-        <div class="project-meta">
-          <div><strong>Année</strong>2024-2025</div>
-          <div><strong>Contexte</strong>Projet IUT</div>
-          <div><strong>Stack</strong>FANUC RAPID · ROBOGUIDE · TPP</div>
-        </div>
-        <a href="#" class="project-link">En savoir plus →</a>
+        <p class="project-desc">Simulation complète d'un îlot automatisé de palettisation sur cellule éducative FANUC LR Mate 200iD. Programmation des séquences pick-and-place via ROBOGUIDE : prise de boîtes sur convoyeur (gestion des E/S DI/DO, ventouse préhenseuse), présentation face...</p>
       </div>
     </div>
-
-    <div class="project reveal">
-      <div class="project-image">
-        <img src="projet-banc-calibration.jpg" alt="Banc de calibration de capteur de pression - Sagemcom MEI" />
-      </div>
-      <div>
-        <div class="project-num">/ Projet 03</div>
-        <h3 class="project-title">Validation d'un banc de calibration de capteur de pression</h3>
-        <p class="project-desc">Mise en service et validation d'un banc industriel destiné à vérifier la calibration de capteurs de pression intégrés à des compteurs d'eau intelligents. Tests de répétabilité, rédaction du rapport de validation, modifications de l'IHM (multilingue, indicateurs), simplification du programme automate (LD → Grafcet) et formation des opérateurs.</p>
-        <div class="project-meta">
-          <div><strong>Année</strong>2025</div>
-          <div><strong>Contexte</strong>Stage Sagemcom MEI</div>
-          <div><strong>Stack</strong>Siemens S7-1200 · TIA Portal · Weintek</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
-
-<!-- =============== EXPÉRIENCE =============== -->
-<section id="experience">
-  <div class="section-header reveal">
-    <div>
-      <div class="section-number">05 — Expérience</div>
-      <h2 class="section-title">Vie <em>professionnelle</em>.</h2>
-    </div>
-    <p class="section-intro">L'alternance, c'est là que tout se confronte au réel. Voici l'expérience qui structure mon parcours pro.</p>
-  </div>
-
-  <div class="experience-grid">
-
-    <div class="exp-card reveal">
-      <div class="exp-date">Juin 2025 — Présent</div>
-      <h3 class="exp-role">Stage puis alternance — Production & Maintenance</h3>
-      <p class="exp-company">Sagemcom MEI</p>
-      <p class="exp-desc">Co-gestion de la fabrication de prototypes de compteurs d'eau intelligents. Coordination avec les équipes d'ingénierie de Paris et Tunis sur les évolutions de production et la résolution d'incidents. Maintenance préventive et corrective, livraison d'optimisations matérielles et logicielles pour améliorer la performance de la ligne.</p>
-    </div>
-
-    <div class="exp-card reveal">
-      <div class="exp-date">En cours</div>
-      <h3 class="exp-role">Pré-habilitation électrique</h3>
-      <p class="exp-company">Niveaux B1V / B2V / BR</p>
-      <p class="exp-desc">Formation à l'intervention en basse tension : travaux d'ordre électrique, opérations de mesurage et essais, dépannage et consignation. Indispensable pour intervenir en toute sécurité sur des installations industrielles sous tension ou hors tension.</p>
-    </div>
-
-    <div class="exp-card reveal">
-      <div class="exp-date">Certifié</div>
-      <h3 class="exp-role">PSC1 — Premiers secours</h3>
-      <p class="exp-company">Prévention et Secours Civiques niveau 1</p>
-      <p class="exp-desc">Formation aux gestes qui sauvent : protéger, alerter, secourir. Une compétence transversale, particulièrement utile en environnement industriel où les risques (électriques, mécaniques, chimiques) sont présents au quotidien.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============== CENTRES D'INTÉRÊT =============== -->
-<section id="interets">
-  <div class="section-header reveal">
-    <div>
-      <div class="section-number">06 — Centres d'intérêt</div>
-      <h2 class="section-title">Me <em>connaître</em>.</h2>
-    </div>
-    <p class="section-intro">Cinéma, livres, sport et regard tourné vers les étoiles — ce qui me nourrit en dehors de la technique.</p>
-  </div>
-
-  <div class="interests">
-    <div class="interest reveal">
-      <div class="interest-icon">▶</div>
-      <div class="interest-name">Cinéma</div>
-    </div>
-    <div class="interest reveal">
-      <div class="interest-icon">❦</div>
-      <div class="interest-name">Lecture</div>
-    </div>
-    <div class="interest reveal">
-      <div class="interest-icon">●</div>
-      <div class="interest-name">Karaté · Capoeira</div>
-    </div>
-    <div class="interest reveal">
-      <div class="interest-icon">⚡</div>
-      <div class="interest-name">Basket</div>
-    </div>
-    <div class="interest reveal">
-      <div class="interest-icon">✦</div>
-      <div class="interest-name">Astronomie</div>
-    </div>
-    <div class="interest reveal">
-      <div class="interest-icon">🌐</div>
-      <div class="interest-name">Anglais · Espagnol</div>
-    </div>
-  </div>
-</section>
-
-<!-- =============== CONTACT =============== -->
-<section class="contact" id="contact">
-  <div class="contact-eyebrow reveal">07 — On se parle ?</div>
-  <h2 class="contact-title reveal">Travaillons <em>ensemble</em>.</h2>
-  <a href="mailto:lnouiouichared@gmail.com" class="contact-email reveal">lnouiouichared@gmail.com</a>
-  <div class="contact-info reveal">
-    <span>+33 6 51 28 88 74</span>
-    <span>Brest · France</span>
-    <a href="https://www.linkedin.com/in/lehyan-nouioui-chared-154673297/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a href="cv-lehyan.pdf" target="_blank" rel="noopener">CV ↗</a>
-  </div>
-</section>
-
-<!-- =============== FOOTER =============== -->
-<footer>
-  <div>© 2025 Lehyan Nouioui--Chared. Tous droits réservés.</div>
-  <div>Portfolio · BUT GEII AII · Promotion 2023-2026</div>
-</footer>
-
-<script>
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Cacher le menu mobile au clic sur un lien
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.remove('open');
-  });
-});
-</script>
 
 </body>
 </html>
